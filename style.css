@@ -232,6 +232,141 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 }
 
 .header {
+  background-color: var(--clr-neutral-100);
+
+  > div {
+    justify-content: space-between;
+    align-items: center;
+  }
+  > a {
+    display: flex;
+    grid-column: 1;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    > p {
+      font-size: 2cap;
+      margin-inline-start: 0.5rem;
+    }
+  }
+  svg {
+    width: 55px;
+    height: 55px;
+  }
+  svg > g {
+    stroke: var(--clr-accent);
+  }
+  nav {
+    height: stretch;
+    > ul {
+      height: stretch;
+    }
+    > ul > li {
+      height: 100%;
+      margin: 0;
+
+      > a {
+        display: inline-flex;
+        align-items: center;
+        height: stretch;
+        align-self: center;
+        padding-inline: 1rem;
+        text-decoration: none;
+
+        &:hover {
+          background-color: var(--clr-accent);
+          color: var(--clr-neutral-100);
+        }
+      }
+    }
+    /*  li {
+      margin: 0;
+      padding-inline: 1rem;
+    } */
+  }
+  /* nav > ul > li > a {
+    height: stretch;
+    width: 100%;
+    &:hover {
+      text-decoration: none;
+      color: var(--clr-neutral-100);
+      background-color: var(--clr-accent);
+    } 
+  }*/
+}
+
+/* Hamburger menu and nav styles
+How to make a css-only hamburger menu by Alberto de Murga
+https://threkk.medium.com/how-to-make-a-css-only-hamburger-menu-f7ad41e13399 */
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+nav ul {
+  /* Make the markers disappear */
+  list-style-type: none;
+  color: black;
+}
+nav ul li {
+  /* Puts the elements in a single line */
+  display: inline-flex;
+  margin: 0.3em 1em;
+}
+
+nav input[type="checkbox"],
+nav label {
+  display: none;
+}
+@media (max-width: 576px) {
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  /* Because we are in mobile mode, we want to display it as a
+       vertical list */
+  nav ul {
+    display: block;
+  }
+  nav ul li {
+    margin-bottom: 0;
+    width: 100%;
+    text-align: right;
+    padding: 0.5em;
+  }
+  input[type="checkbox"]:not(:checked) + ul {
+    display: none;
+  }
+  nav label {
+    text-align: right;
+    display: block;
+    padding: 0.5em;
+    line-height: 1.6em;
+    align-self: center;
+  }
+  /* */
+  nav {
+    position: relative;
+  }
+  input[type="checkbox"]:checked + ul {
+    background-color: var(--clr-neutral-100);
+    position: absolute;
+    top: 100%;
+    right: -1rem;
+    width: fit-content;
+    height: fit-content;
+    transition: all 1s;
+
+    > li {
+      padding-block: 1rem;
+    }
+  }
+}
+
+/*
+.header {
   > div {
     display: flex;
     flex-wrap: wrap;
@@ -535,6 +670,10 @@ footer {
 
 /*** Utilities ***/
 
+.flex-wrapper {
+  display: flex;
+}
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -544,7 +683,7 @@ footer {
   white-space: nowrap;
   width: 1px;
 }
-
+/*
 .flex {
   display: flex;
 }
@@ -616,3 +755,5 @@ footer {
 .clr-accent {
   background-color: var(--clr-accent);
 }
+
+*/
