@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body class="content-grid">
+  <body class="content-grid flow">
     <header class="header fullwidth">
       <div class="flex-wrapper">
         <a href="/" class="logo-wrapper">
@@ -65,26 +65,28 @@
         </nav>
       </div>
     </header>
-    <!--  <main class="flow-lg">
-      <header class="margin-wrapper-extra text-center main__header flow">
+    <main class="flow-lg">
+      <header class="main__header flow">
         <h1>Våra uppskattade växter</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
           ex vero harum recusandae et, nemo ea, non fugit sapiente sit dolore
           autem! Expedita illo deleniti maiores harum consequatur debitis hic.
         </p>
-        <section class="hero-gallery"></section>
+        <section class="hero-gallery">
+          <img src="https://picsum.photos/id/55/200" />
+          <img src="https://picsum.photos/id/56/200" />
+          <img src="https://picsum.photos/id/57/200" />
+          <img src="https://picsum.photos/id/58/200" />
+          <img src="https://picsum.photos/id/59/200" />
+          <img src="https://picsum.photos/id/60/200" />
+        </section>
       </header>
+    </main>
 
-      <aside class="clr-primary-light-1">
-        <div class="margin-wrapper-extra newsletter-signup">
-          <div class="news-calltoaction">
-            <h2>Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!</h2>
-            <div class="news-input-wrapper">
-              <input type="email" placeholder="namn@email.com" id="email" />
-              <button type="submit">Skicka</button>
-            </div>
-          </div>
+    <aside>
+      <div class="newsletter-signup flow">
+        <div class="svg-wrapper">
           <svg
             class="news-svg"
             aria-hidden="true"
@@ -168,8 +170,21 @@
             />
           </svg>
         </div>
-      </aside>
-
+        <div class="news-calltoaction">
+          <h2>
+            <label for="email"
+              >Anmäl dig till vårt nyhetsbrev så du inte missar en
+              utsådd!</label
+            >
+          </h2>
+          <form class="news-signup-form">
+            <input type="email" placeholder="namn@email.com" id="email" />
+            <button type="submit">Skicka</button>
+          </form>
+        </div>
+      </div>
+    </aside>
+    <!--
       <section class="">
         <div class="margin-wrapper plant-gallery">
           <h2>Alla våra växter</h2>
