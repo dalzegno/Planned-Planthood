@@ -76,6 +76,8 @@ main {
   --clr-neutral-800: hsl(0, 0%, 17%);
   --clr-neutral-900: hsl(0, 0%, 12%);
 
+  --clr-neutral-100-transparent: hsla(0, 0%, 100%, 0.123);
+
   --clr-green-100: hsl(169, 11%, 93%);
   --clr-green-200: hsl(169, 51%, 58%);
   --clr-green-400: hsl(169, 86%, 28%);
@@ -254,7 +256,8 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     text-decoration: none;
 
     .logo-text {
-      font-size: 3cqh;
+      font-size: 2cqh;
+      align-self: center;
       font-weight: var(--fw-600);
       margin-inline-start: 0.5rem;
     }
@@ -374,12 +377,22 @@ aside:has(> .newsletter-signup) {
 
   > input {
     background-color: var(--clr-neutral-100);
-    color: var(--clr-neutral-800);
+    color: black;
     border: 1px solid black;
     border-radius: 10rem;
     width: 100%;
     padding: 0.5rem;
   }
+  /* Background-color autocomplete fix for chrome http://stackoverflow.com/questions/2338102/override-browser-form-filling-and-input-highlighting-with-html-css */
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px var(--clr-neutral-100) inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: var(--clr-neutral-900);
+  }
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px var(--clr-neutral-100) inset; /*your box-shadow*/
+    -webkit-text-fill-color: var(--clr-neutral-900);
+  }
+
   > button {
     cursor: pointer;
     background-color: var(--clr-accent);
@@ -424,8 +437,30 @@ aside:has(> .newsletter-signup) {
   height: 100%;
   grid-template-rows: subgrid;
 
-  .plant-img {
+  .plant-img-wrapper {
+    position: relative;
     grid-row: 1;
+  }
+
+  .plant-img {
+    object-fit: cover;
+    width: 100%;
+  }
+  .plant-watermark {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 50%;
+    width: 50%;
+    > :nth-child(-n + 2) {
+      fill: var(--clr-neutral-100-transparent);
+    }
+    > :nth-child(n - 2) {
+      stroke: var(--clr-neutral-100-transparent);
+    }
   }
   .plant-name {
     grid-row: 2;
@@ -442,13 +477,8 @@ aside:has(> .newsletter-signup) {
   }
 }
 
-.plant-card > *:not(img) {
+.plant-card > *:not(.plant-img-wrapper) {
   padding: 0.5rem;
-}
-
-.plant-img {
-  object-fit: cover;
-  width: 100%;
 }
 
 .plant-tag-region {
