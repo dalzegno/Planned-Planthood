@@ -251,8 +251,11 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   .logo-wrapper {
     padding-block-start: 0.2rem;
     display: flex;
-    > p {
-      font-size: 2cap;
+    text-decoration: none;
+
+    .logo-text {
+      font-size: 3cqh;
+      font-weight: var(--fw-600);
       margin-inline-start: 0.5rem;
     }
   }
@@ -264,18 +267,16 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     stroke: var(--clr-accent);
   }
   nav {
-    height: stretch;
-    > ul {
-      height: stretch;
-    }
+    height: 100%;
     > ul > li {
       height: 100%;
       margin: 0;
-
+      display: inline-flex;
+      flex-direction: row;
       > a {
         display: inline-flex;
         align-items: center;
-        height: stretch;
+        height: 100%;
         align-self: center;
         padding-inline: 1rem;
         text-decoration: none;
@@ -377,6 +378,7 @@ aside:has(> .newsletter-signup) {
     padding: 0.5rem;
   }
   > button {
+    cursor: pointer;
     background-color: var(--clr-accent);
     border-radius: 1rem;
     border: none;
@@ -416,6 +418,24 @@ aside:has(> .newsletter-signup) {
   background-color: var(--clr-neutral-100);
   box-shadow: 0 0 2px grey;
   height: 100%;
+  grid-template-rows: subgrid;
+
+  .plant-img {
+    grid-row: 1;
+  }
+  .plant-name {
+    grid-row: 2;
+  }
+  .plant-tag-region {
+    grid-row: 3;
+    align-items: start;
+  }
+  .plant-description {
+    grid-row: 4;
+  }
+  .plant-byline {
+    grid-row: 5;
+  }
 }
 
 .plant-card > *:not(img) {
@@ -423,7 +443,6 @@ aside:has(> .newsletter-signup) {
 }
 
 .plant-img {
-  order: -2;
   object-fit: cover;
   width: 100%;
 }
@@ -478,6 +497,8 @@ aside:has(> .previous-plants) {
 }
 .previous-plants {
   > div > a {
+    cursor: pointer;
+    user-select: none;
     text-decoration: none;
     display: inline-block;
     border-radius: 10rem;
@@ -524,9 +545,39 @@ aside:has(> .previous-plants) {
 /*#endregion END OF FOOTER */
 
 /* #region MEDIA QUERIES */
-
+/* for TABLETS */
 @media (width > 576px) and (width < 768px) {
+  .hero-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+  }
+  .newsletter-signup {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  .news-calltoaction {
+    width: min-content;
+    margin-inline-end: 3rem;
+  }
+
+  .previous-plants {
+    flex-direction: row;
+    justify-content: center;
+
+    > .previous-plants__desc {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      margin-inline-start: 3rem;
+      text-align: start;
+      > a {
+        justify-self: flex-end;
+        align-self: flex-end;
+      }
+    }
+  }
 }
+/* for DESKTOP */
 @media (width > 768px) {
   .hero-gallery {
     grid-template-columns: repeat(6, 1fr);
@@ -600,9 +651,8 @@ aside:has(> .previous-plants) {
     }
   }
 }
-
+/* for MOBILE */
 @media (max-width: 576px) {
-  /* HEADER */
   /* Hamburger menu and nav styles
 
   (hamburger menu med hjälp av av How to make a css-only hamburger menu by Alberto de Murga)
@@ -633,6 +683,7 @@ aside:has(> .previous-plants) {
     line-height: 1.6em;
     align-self: center;
   }
+  /**/
   nav {
     position: relative;
   }
@@ -643,7 +694,6 @@ aside:has(> .previous-plants) {
     right: -1rem;
     width: fit-content;
     height: fit-content;
-    transition: all 1s;
 
     > li {
       padding-block: 1rem;
@@ -651,7 +701,7 @@ aside:has(> .previous-plants) {
   }
 }
 
-/*** Utilities ***/
+/*** #region Utilities ***/
 
 .flex-wrapper {
   display: flex;
@@ -715,3 +765,4 @@ aside:has(> .previous-plants) {
 
 
 */
+/* #endregion END OF UTILITIES */
