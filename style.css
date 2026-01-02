@@ -1,4 +1,4 @@
-/*** Reset ***/
+/* #region Reset */
 /* This is from Kevin Powell, edit to your liking */
 
 /* makes sizing simpler */
@@ -65,7 +65,9 @@ main {
   padding: 0;
 }
 
-/*** Theme ***/
+/* #endregion END OF RESET */
+
+/* #region Theme */
 
 :root {
   /* color definitions */
@@ -146,8 +148,9 @@ main {
   --flow-space: 1.75em;
   --flow-space-lg: 4em;
 }
+/* #endregion END OF THEME */
 
-/*** Global/base ***/
+/* #region Global/base */
 h1,
 h2,
 h3 {
@@ -187,7 +190,9 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-/*** Composition ***/
+/* #endregion END OF GLOBAL/BASE */
+
+/* #region Composition */
 .flow > * + * {
   margin-block-start: var(--flow-space);
 }
@@ -237,11 +242,14 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   grid-column: fullwidth;
 }
 
+/* #endregion END OF COMPOSITION */
+
 /* #region HEADER */
 .header {
   background-color: var(--clr-neutral-100);
 
   > div {
+    display: flex;
     justify-content: space-between;
     align-items: center;
   }
@@ -316,7 +324,7 @@ nav label {
 
 /* #endregion END OF HEADER */
 
-/*#region MAIN */
+/* #region MAIN */
 
 .main__header {
   text-align: center;
@@ -736,11 +744,9 @@ aside:has(> .previous-plants) {
   }
 }
 
-/*** #region Utilities ***/
+/* #endregion END OF MEDIA QUERIES */
 
-.flex-wrapper {
-  display: flex;
-}
+/* #region Utilities */
 
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -791,13 +797,9 @@ aside:has(> .previous-plants) {
 .plant-tag__sunlover {
   background-color: var(--clr-sunloving);
 }
-/*
 
-
-.bg-red {
+/* .bg-red {
   background-color: red;
-}
+} */
 
-
-*/
 /* #endregion END OF UTILITIES */
